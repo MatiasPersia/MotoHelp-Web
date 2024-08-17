@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles de Productos</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="product-list">
+        <!-- Aquí se generarán los productos dinámicamente -->
+    </div>
+
+    <div class="tab-buttons" id="tab-buttons">
+        <button onclick="selectProduct('PLAN BASICO', ' -Traslado hasta 100 kilómetros. 12 servicios al año.  -Cobertura en la provincia de Mendoza, República Argentina.  -Mecánica ligera en el lugar. -Abastecimiento de combustible y lubricantes.', 4000)">PLAN BASICO</button>
+        <button onclick="selectProduct('PLAN NORMAL', ' -Traslado hasta 500 kilómetros. -12 servicios al año.  -Cobertura en la provincia de Mendoza, República Argentina.  -Mecánica ligera en el lugar.  -Abastecimiento de combustible y lubricantes. ', 6000)">PLAN NORMAL</button>
+        <button onclick="selectProduct('PLAN FULL', ' -Traslado sin límite de kilómetros.  -Sin límite de servicios mensual y anual. Cobertura en la provincia de Mendoza, República Argentina.  -Mecánica ligera en el lugar. -Abastecimiento de combustible y lubricantes.', 8000)">PLAN FULL</button>
+    </div>
+    <div id="tab-content">
+        <h2 id="productTitle">PLAN BASICO</h2>
+        <p id="productDescription">-Traslado hasta 100 kilómetros. 12 servicios al año.  -Cobertura en la provincia de Mendoza, República Argentina.  -Mecánica ligera en el lugar. -Abastecimiento de combustible y lubricantes.</p>
+        <p id="productPrice">Precio: $4000 por mes</p>
+    </div>
+
+    <button type="button" class="whatsapp-button" onclick="sendToWhatsApp()">Enviar a WhatsApp 📱</button>
+    <script src="productoDetalle.js"></script>
+    <script src="script.js"></script>
+    <script>
+        function selectProduct(title, description, price) {
+            document.getElementById('productTitle').innerText = title;
+            document.getElementById('productDescription').innerText = description;
+            document.getElementById('productPrice').innerText = 'Precio: $' + price + ' por mes';
+        }
+
+        function sendToWhatsApp() {
+            var productTitle = document.getElementById('productTitle').innerText;
+            var message = 'Estoy interesado en el ' + productTitle;
+            var phoneNumber = '5492615441844'; // Reemplaza con el número de teléfono al que deseas enviar el mensaje
+            var whatsappUrl = 'https://api.whatsapp.com/send?phone=' + phoneNumber + '&text=' + encodeURIComponent(message);
+            window.open(whatsappUrl, '_blank');
+        }
+    </script>
+</body>
+</html>
