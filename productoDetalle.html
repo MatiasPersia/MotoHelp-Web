@@ -4,11 +4,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalles de Productos</title>
+    <link rel="icon" type="image/png" href="images/favicon.jpeg">
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/themify-icons.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
+    <header class="header shop">
+		<div class="topbar">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-5 col-md-12 col-12">
+						<div class="top-left">
+							<ul class="list-main">
+								<li><i class="ti-headphone-alt"></i> +54 (261) 56-851311</li>
+								<li><i class="ti-email"></i> sm.servicios@gmail.com</li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-lg-7 col-md-12 col-12">
+						<div class="right-content">
+								<i class="ti-whatsapp"></i><a href="https://wa.me/2615663244" target="_blank">Contactanos</a>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="middle-inner ">
+			<div class="container ">
+				<div class="row centradoItems">
+					<div class="col-lg-2 col-md-2 col-12">
+						<div class="logo">
+							<a href="index.html"><img src="images/logo.jpeg" alt="logo"></a>
+						</div>
+						<div class="mobile-nav"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="header-inner ">
+			<div class="container">
+						<div class="col-lg-9 col-12">
+							<div class="menu-area centradoItems">
+								<!-- Main Menu -->
+								<nav class="navbar navbar-expand-lg ">
+									<div class="navbar-collapse  ">	
+										<div class="nav-inner">	
+											<ul class="nav main-menu menu navbar-nav margen10 ">
+													<li ><a href="./index.html">Inicio</a></li>
+													<li><a href="https://wa.me/2615663244" target="_blank">Contact</a></li>
+												</ul>
+										</div>
+									</div>
+								</nav>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
     <div class="product-list">
-        <!-- Aquí se generarán los productos dinámicamente -->
     </div>
 
     <div class="tab-buttons" id="tab-buttons">
@@ -35,10 +97,24 @@
         function sendToWhatsApp() {
             var productTitle = document.getElementById('productTitle').innerText;
             var message = 'Estoy interesado en el ' + productTitle;
-            var phoneNumber = '5492615441844'; // Reemplaza con el número de teléfono al que deseas enviar el mensaje
+            var phoneNumber = '5492615441844'; 
             var whatsappUrl = 'https://api.whatsapp.com/send?phone=' + phoneNumber + '&text=' + encodeURIComponent(message);
             window.open(whatsappUrl, '_blank');
         }
     </script>
+    	<footer>
+            <div class="footer-content">
+                <h3>MOTO HELP</h3>
+                <p>Contactanos: +54 (261) 56-851311 | sm.servicios@gmail.com</p>
+                <ul class="socials">
+                    <li><a href="https://www.facebook.com/profile.php?id=61562248673204&mibextid=ZbWKwL" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="https://wa.me/2615663244"target="_blank"><i class="fab fa-whatsapp"></i></a></li>
+                    <li><a href="https://www.instagram.com/motohelp.mza?igsh=MTJhbHhqODk4ZDAzZg=="target="_blank"><i class="fab fa-instagram"></i></a></li>
+                </ul>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 MOTO HELP. Todos los derechos reservados.</p>
+            </div>
+        </footer>
 </body>
 </html>
