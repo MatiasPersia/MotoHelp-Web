@@ -74,34 +74,50 @@
     </div>
 
     <div class="tab-buttons" id="tab-buttons">
-        <button onclick="selectProduct('PLAN BASICO', ' -Traslado hasta 100 kilómetros. 12 servicios al año.  -Cobertura en la provincia de Mendoza, República Argentina.  -Mecánica ligera en el lugar. -Abastecimiento de combustible y lubricantes.', 4000)">PLAN BASICO</button>
-        <button onclick="selectProduct('PLAN NORMAL', ' -Traslado hasta 500 kilómetros. -12 servicios al año.  -Cobertura en la provincia de Mendoza, República Argentina.  -Mecánica ligera en el lugar.  -Abastecimiento de combustible y lubricantes. ', 6000)">PLAN NORMAL</button>
-        <button onclick="selectProduct('PLAN FULL', ' -Traslado sin límite de kilómetros.  -Sin límite de servicios mensual y anual. Cobertura en la provincia de Mendoza, República Argentina.  -Mecánica ligera en el lugar. -Abastecimiento de combustible y lubricantes.', 8000)">PLAN FULL</button>
+        <button class="tab-button" onclick="selectProduct('PLAN BASICO', ' ► Traslado hasta 100 kilómetros. ► 12 servicios al año.   ► Cobertura en la provincia de Mendoza, República Argentina.  ► Mecánica ligera en el lugar. ► Abastecimiento de combustible y lubricantes.', 4000)">PLAN BASICO</button>
+        <button class="tab-button" onclick="selectProduct('PLAN NORMAL', ' ► Traslado hasta 500 kilómetros. ► 12 servicios al año.  ► Cobertura en la provincia de Mendoza, República Argentina.  ► Mecánica ligera en el lugar.  ► Abastecimiento de combustible y lubricantes. ', 6000)">PLAN NORMAL</button>
+        <button class="tab-button" onclick="selectProduct ('PLAN FULL', ' ► Traslado sin límite de kilómetros.  ► Sin límite de servicios mensual y anual. ► Cobertura en la provincia de Mendoza, República Argentina.  ► Mecánica ligera en el lugar. ► Abastecimiento de combustible y lubricantes.', 8000)">PLAN FULL</button>
     </div>
+    <div class="centered-container">
     <div id="tab-content">
         <h2 id="productTitle">PLAN BASICO</h2>
-        <p id="productDescription">-Traslado hasta 100 kilómetros. 12 servicios al año.  -Cobertura en la provincia de Mendoza, República Argentina.  -Mecánica ligera en el lugar. -Abastecimiento de combustible y lubricantes.</p>
+        <ul id="productDescription">
+            <li>► Traslado hasta 100 kilómetros</li>
+            <li>► 12 servicios al año</li>
+            <li>► Cobertura en la provincia de Mendoza, República Argentina</li>
+            <li>► Mecánica ligera en el lugar</li>
+            <li>► Abastecimiento de combustible y lubricantes</li>
+        </ul>
         <p id="productPrice">Precio: $4000 por mes</p>
-    </div>
-
+    </div>    
+</div>
     <button type="button" class="whatsapp-button" onclick="sendToWhatsApp()">Enviar a WhatsApp 📱</button>
     <script src="productoDetalle.js"></script>
     <script src="script.js"></script>
     <script>
         function selectProduct(title, description, price) {
             document.getElementById('productTitle').innerText = title;
-            document.getElementById('productDescription').innerText = description;
-            document.getElementById('productPrice').innerText = 'Precio: $' + price + ' por mes';
+            const descriptionList = document.getElementById('productDescription');
+            descriptionList.innerHTML = '';
+            description.split('. ').forEach(item => {
+                if (item.trim()) {
+                    const li = document.createElement('li');
+                    li.textContent = item.trim();
+                    descriptionList.appendChild(li);
+                }
+            });
+            document.getElementById('productPrice').innerText = 'Precio: $' + price.toLocaleString() + ' por mes';
         }
-
+    
         function sendToWhatsApp() {
             var productTitle = document.getElementById('productTitle').innerText;
-            var message = 'Estoy interesado en el ' + productTitle;
+            var message = 'Hola MotoHelp. Estoy interesado en el ' + productTitle;
             var phoneNumber = '5492615441844'; 
             var whatsappUrl = 'https://api.whatsapp.com/send?phone=' + phoneNumber + '&text=' + encodeURIComponent(message);
             window.open(whatsappUrl, '_blank');
         }
     </script>
+    
     	<footer>
             <div class="footer-content">
                 <h3>MOTO HELP</h3>
